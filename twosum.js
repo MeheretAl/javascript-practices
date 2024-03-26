@@ -1,10 +1,15 @@
 function twoSum(arr, target) {
+    var mymap = new Map()
     for (var i = 0; i < arr.length; i++) {
-        for (var j = i + 1; j < arr.length; j++) {
-            if (nums[i] + nums[j] == target) {
-                return [i, j]
-            }
+        var comp = target - arr[i]
+        if (mymap.has(comp)) {
+            return [i, arr.indexOf(comp)]
+        } else {
+            mymap.set(arr[i], comp)
         }
     }
 }
-//can be done more efficiently using maps
+
+var arr = [1, 2, 3, 3]
+var target = 5
+console.log(twoSum(arr, target))
