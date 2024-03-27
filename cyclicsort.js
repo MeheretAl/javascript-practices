@@ -14,6 +14,3 @@ function cycleSort(arr) {
     return arr
 
 }
-
-arr = [7, 8, 9, 11, 12]
-console.log(cycleSort(arr))
