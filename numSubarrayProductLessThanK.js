@@ -3,18 +3,18 @@ function numSubArrayProductLessThanK(nums, k) {
         return 0;
     }
 
+    let left = 0,right = 0,product = 1,answer = 0;
+    while(left <= nums.length) {
+        let product  = product * nums[right];
+        while(product < k) {
+            product = Math.floor(product/nums[left])
+            left += 1
+        }
+        answer += 1
+    }
+
 
 
 
 }
 
-// [10,5,2,6] k = 100
-// [10] is valid so add it
-// [10,5] is valid so add it
-// [10,5,2] is not valid so remove [10]
-// [5,2] is valid so add it
-// [5,2,6] is valid so add it // We've also reached the end of the array
-// [2,6] is valid so add it
-// [6] is valid so add it
-// [10], [10,5], [10,5,2], [5,2],[5,2,6],[2,6], [6]
-// [5] and [2] are valid but not added therfore change of ways is needed
