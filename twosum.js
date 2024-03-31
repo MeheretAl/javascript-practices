@@ -10,6 +10,3 @@ function twoSum(arr, target) {
     }
 }
 
-var arr = [1, 2, 3, 3]
-var target = 5
-console.log(twoSum(arr, target))
