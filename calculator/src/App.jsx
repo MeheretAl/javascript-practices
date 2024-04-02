@@ -6,7 +6,7 @@ function App() {
   const [value, setValue] = useState(' ');
 
   const handleButtonClick = (e) => {
-    e.preventDefault();
+
 
     setValue(value + e.target.value);
   };
@@ -16,7 +16,7 @@ function App() {
     <>
       <div className="container">
         <div className="calculator">
-          <form action="">
+          <form action="" onSubmit={e => e.preventDefault()}>
             <div className='Row'>
               <input type="text" value={value} />
             </div>
@@ -41,8 +41,8 @@ function App() {
             <div className='Row'>
               <button className='Op' value='C' >C</button>
               <button className='Op' value='0' onClick={handleButtonClick}>0</button>
-              <button className='Op' value='&larr;' >&larr;</button>
-              <button className='Op' value='=' >=</button>
+
+              <button className='equal' value='=' onClick={e => setValue(eval(value))} >=</button>
             </div>
           </form>
         </div>
