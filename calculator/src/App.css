@@ -50,6 +50,12 @@ button {
   color: antiquewhite;
 }
 
+button:hover {
+  margin: 2px;
+  background-color: aqua;
+  border: 5px;
+}
+
 .clear {
   grid-column: 1/3;
 }
