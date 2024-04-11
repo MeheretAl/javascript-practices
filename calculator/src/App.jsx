@@ -13,7 +13,15 @@ function App() {
   }
 
   function handleClick(event) {
-    setValue(value + event.target.value)
+    if (event.target.value == '0' && value == '') {
+      setValue(value)
+    }
+    else if (isNaN(value.charAt(value.length - 1)) && event.target.value == '0') {
+      setValue(value)
+    } else {
+      setValue(value + event.target.value)
+    }
+
   }
 
   function handleOperations(event) {
