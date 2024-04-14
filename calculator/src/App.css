@@ -15,7 +15,7 @@ body {
   padding: 10px;
   border: 10px;
   border-radius: 10px;
-  background-color: rgb(110, 134, 134);
+  background-color: rgb(11, 39, 39);
 }
 
 .keys {
@@ -44,7 +44,7 @@ input {
 button {
   margin: 4px;
   border: none;
-  background-color: rgb(8, 58, 42);
+  background-color: rgb(96, 89, 73);
   border-radius: 10px;
   font-size: 25px;
   color: antiquewhite;
@@ -59,6 +59,7 @@ button:hover {
 .clear {
   grid-column: 1/3;
 }
+
 
 
 
