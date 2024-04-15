@@ -2,66 +2,77 @@ import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [outputValue, setOutputValue] = useState('')
   const [value, setValue] = useState('');
   const [operator, setOperator] = useState(null);
   const [preValue, setPreValue] = useState(null);
 
+  function handleClear() {
+    setOutputValue('')
+    setPreValue(null)
+    setValue('')
+    setOperator(null)
+  }
+
+  function handleDelete() {
+    setOutputValue(outputValue.slice(0, -1))
+    setValue(value.slice(0, -1))
+  }
+
   function handleNumbers(event) {
+    setOutputValue(outputValue + event.target.value)
     setValue(value + event.target.value)
   }
 
   function handleOperations(event) {
     setOperator(event.target.value)
-    setPreValue(preValue)
-    setValue('0')
-  }
-
-  function handleDelete() {
-    setValue(value.slice(0, -1))
-  }
-
-  function handleClear() {
-    setOperator(null)
+    setOutputValue(outputValue + event.target.value)
+    setPreValue(value)
     setValue('')
-    setPreValue(null)
   }
+
 
   function handleEquals() {
-    const current = parseFloat(value)
-    const prev = parseFloat(preValue)
+    const current = parseInt(value)
+    const prev = parseInt(preValue)
+    console.log(operator)
+    console.log(current)
+    console.log(prev)
+    console.log("the answer is " + outputValue)
 
     switch (operator) {
       case '+':
-        setValue(current + prev)
+
+        setOutputValue(current + prev)
         setPreValue(null)
         setOperator(null)
+        break;
       case '-':
-        setValue(prev - current)
+        setOutputValue(prev - current)
         setPreValue(null)
         setOperator(null)
+        break
       case '*':
-        setValue(prev * current)
+        setOutputValue(prev * current)
         setPreValue(null)
         setOperator(null)
+        break
       case '/':
-        setValue(current / prev)
+        setOutputValue(current / prev)
         setPreValue(null)
         setOperator(null)
+        break
       default:
-        setValue(null)
-        setPreValue(null)
-        setOperator(null)
+        setOutputValue(value)
     }
   }
-
-
 
 
   return (
     <div className="container">
       <div className="calculator">
         <form>
-          <input type="text" value={value} readOnly />
+          <input type="text" value={outputValue} readOnly />
         </form>
 
         <div className="keys">
