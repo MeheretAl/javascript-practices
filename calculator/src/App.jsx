@@ -35,10 +35,6 @@ function App() {
   function handleEquals() {
     const current = parseInt(value)
     const prev = parseInt(preValue)
-    console.log(operator)
-    console.log(current)
-    console.log(prev)
-    console.log("the answer is " + outputValue)
 
     switch (operator) {
       case '+':
@@ -58,7 +54,11 @@ function App() {
         setOperator(null)
         break
       case '/':
-        setOutputValue(current / prev)
+        if (current === 0) {
+          setOutputValue("Undefined")
+        } else {
+          setOutputValue(prev / current)
+        }
         setPreValue(null)
         setOperator(null)
         break
