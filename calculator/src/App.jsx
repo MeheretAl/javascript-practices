@@ -58,7 +58,7 @@ function App() {
         setOperator(null)
         break
       case '/':
-        setOutputValue(current / prev)
+        setOutputValue(prev / current)
         setPreValue(null)
         setOperator(null)
         break
